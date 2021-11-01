@@ -42,12 +42,12 @@ class SubcategoryController extends Controller
                 ->where(function ($query) use ($name, $status) {
                     if ($name != '') {
                         $query->Where(function ($query) use ($name) {
-                            $query->where('subcategories.name', 'like', '%' . $name . '%');
+                            $query->where('subcategories.name', '=',  $name );
                         });
                     }
                     if ($status != '') {
                         $query->where(function ($query) use ($status) {
-                            $query->where('subcategories.status', 'like', '%' . $status . '%');
+                            $query->where('subcategories.status', '=', $status);
                         });
                     }
                 })
